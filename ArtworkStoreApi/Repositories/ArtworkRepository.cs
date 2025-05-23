@@ -10,7 +10,8 @@ namespace ArtworkStoreApi.Repositories
         {
             _context = context;
         }
-        public IEnumerable<Artwork> GetAll() => _context.Artworks.ToList();
+        public IQueryable<Artwork> GetAll() => _context.Artworks;
+        // ToList = vytváří nové místo 
         public Artwork GetById(int id) => _context.Artworks.Find(id);
         public void Add(Artwork artwork)
         {
@@ -31,6 +32,5 @@ namespace ArtworkStoreApi.Repositories
                 _context.SaveChanges();
             }
         }
-
     }
 }
