@@ -1,3 +1,5 @@
+using ArtworkStoreApi.Data;
+
 namespace ArtworkStoreApi
 {
     public class Program
@@ -5,9 +7,18 @@ namespace ArtworkStoreApi
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            var connString = builder.Configuration.GetConnectionString("ArtworkStoreApi");
+            builder.Services.AddSqlite<DatabaseContext>(connString);
+
             var app = builder.Build();
 
-            app.MapGet("/", () => "Hello World!");
+            /*app.MapGet("/", () => "Hello World!");*/
+            app.MapArtworksController();
+            app.MapAdminController();
+            app.MapGenresController();
+            app.MapOrdersController();
+            app.MapReviewsController();
 
             app.Run();
         }
