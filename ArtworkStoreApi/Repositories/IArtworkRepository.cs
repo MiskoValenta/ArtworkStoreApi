@@ -4,7 +4,7 @@ namespace ArtworkStoreApi.Repositories
 {
     public interface IArtworkRepository
     {
-        IEnumerable<Artwork> GetAll();
+        IQueryable<Artwork> GetAll();
         Artwork GetById(int id);
         void Add(Artwork artwork);
         void Update(Artwork artwork);

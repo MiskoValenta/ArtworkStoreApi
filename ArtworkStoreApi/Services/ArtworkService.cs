@@ -56,15 +56,24 @@ namespace ArtworkStoreApi.Services
         }
         public void UpdateArtwork(int id, ArtworkDto artwork)
         {
-            var entity = _artworkRepository.GetById(id);
-            if (entity != null)
+            try
             {
-                entity.Title = artwork.Title;
-                entity.GenreId = artwork.GenreId;
-                entity.Price = artwork.Price;
-                entity.Description = artwork.Description;
-                entity.Quantity = artwork.Quantity;
-                entity.AverageRating = artwork.AverageRating;
+                var entity = _artworkRepository.GetById(id);
+                if (entity != null)
+                {
+                    entity.Title = artwork.Title;
+                    entity.GenreId = artwork.GenreId;
+                    entity.Price = artwork.Price;
+                    entity.Description = artwork.Description;
+                    entity.Quantity = artwork.Quantity;
+                    entity.AverageRating = artwork.AverageRating;
+                    _artworkRepository.Update(entity);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Lepší něco vracet, ať už jenom zprávu
+                // Naučit se loggování
             }
         }
         public void DeleteArtwork(int id)
