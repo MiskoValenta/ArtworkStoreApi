@@ -19,9 +19,11 @@ namespace ArtworkStoreApi
             app.MapGenresController();
             app.MapOrdersController();
             app.MapReviewsController();
+
             // na každou service pøidat Scoped
             // Registrovat Logger a pøes DI implementovat
             // appsettings.json
+
 
             app.Run();
         }

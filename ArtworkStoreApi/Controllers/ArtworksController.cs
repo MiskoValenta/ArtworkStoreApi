@@ -25,6 +25,7 @@ namespace ArtworkStoreApi.Controllers
             return NotFound();
             return Ok(artwork);
         }
+
         // existuje atribut auth... = určití Useři můžou používat tyto metody
         // Ke každé service děláš DTO zvlášť = AutoMapper
     }

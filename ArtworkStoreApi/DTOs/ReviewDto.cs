@@ -1,4 +1,5 @@
-﻿using ArtworkStoreApi.Models;
+
+using ArtworkStoreApi.Models;
 
 namespace ArtworkStoreApi.DTOs
 {
@@ -10,4 +11,3 @@ namespace ArtworkStoreApi.DTOs
         public int Rating { get; set; } // 1-5
         public string Comment { get; set; }
     }
-}

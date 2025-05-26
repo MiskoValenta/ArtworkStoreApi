@@ -2,6 +2,7 @@
 {
     public class Order
     {
+
         public int Id { get; set; }
         public int ArtworkId { get; set; }
         public Artwork Artwork { get; set; }
@@ -12,5 +13,6 @@
         public string DeliveryMethod { get; set; }
         public int Quantity { get; set; }
         public DateTime OrderDate { get; set; }
+
     }
 }
