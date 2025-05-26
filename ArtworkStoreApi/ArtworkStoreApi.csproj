@@ -12,10 +12,9 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.5" />
-<<<<<<< HEAD
+
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.5" />
-=======
->>>>>>> 09d0b8c1c3e2508e4eea97bd4542a4f65fe1e765
+
   </ItemGroup>
 
 </Project>
