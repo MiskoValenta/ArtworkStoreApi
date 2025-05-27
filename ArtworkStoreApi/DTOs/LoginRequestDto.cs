@@ -1,8 +1,29 @@
-﻿namespace ArtworkStoreApi.DTOs
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ArtworkStoreApi.DTOs
 {
-    public record class LoginRequestDto
+    public class LoginRequestDto
     {
-        public required string Email { get; set; }
-        public required string Password { get; set; }
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
+    
+        [Required]
+        public string Password { get; set; }
+    }
+
+    public class RegisterRequestDto
+    {
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
+    
+        [Required]
+        [MinLength(6)]
+        public string Password { get; set; }
+    
+        [Required]
+        [Compare("Password")]
+        public string ConfirmPassword { get; set; }
     }
 }
