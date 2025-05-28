@@ -4,15 +4,17 @@
     {
 
         public int Id { get; set; }
-        public int ArtworkId { get; set; }
-        public Artwork Artwork { get; set; }
-        public string CustomerFirstName { get; set; }
-        public string CustomerLastName { get; set; }
-        public string Address { get; set; }
-        public string PaymentMethod { get; set; }
-        public string DeliveryMethod { get; set; }
-        public int Quantity { get; set; }
-        public DateTime OrderDate { get; set; }
+        public DateTime OrderDate { get; set; } = DateTime.UtcNow;
+        public decimal TotalAmount { get; set; }
+        public string Status { get; set; } = "Pending"; // Pending, Processing, Shipped, Delivered, Cancelled
+        public string ShippingAddress { get; set; }
+    
+        // Foreign Keys
+        public int UserId { get; set; }
+    
+        // Navigation properties
+        public virtual User User { get; set; }
+        public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 
     }
 }

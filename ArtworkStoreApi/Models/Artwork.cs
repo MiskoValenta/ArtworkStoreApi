@@ -3,13 +3,20 @@
     public class Artwork
     {
         public int Id { get; set; }
-        public required string Title { get; set; }
-        public int GenreId { get; set; }
-        public Genre? Genre { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
         public decimal Price { get; set; }
-        public required string Description { get; set; }
-        public int Quantity { get; set; }
-        public DateOnly ReleaseDate { get; set; }
-        public double AverageRating { get; set; }
+        public string ImageUrl { get; set; }
+        public bool IsFeatured { get; set; } = false;
+        public bool IsAvailable { get; set; } = true;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    
+        // Foreign Keys
+        public int GenreId { get; set; }
+    
+        // Navigation properties
+        public virtual Genre Genre { get; set; }
+        public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+        public virtual ICollection<Review> Reviews { get; set; } = new List<Review>();
     }
 }
